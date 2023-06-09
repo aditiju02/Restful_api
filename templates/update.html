@@ -18,20 +18,20 @@
             <form action="/update/{{task.id}}" method="POST">
                 <div class="mb-3">
                   <label for="title" class="form-label">Title</label>
-                  <input type="text" class="form-control" name="title" value={{task.title}} id="title" aria-describedby="emailHelp">
+                  <input type="text" class="form-control" name="title" value="{{task.title}}" id="title">
                 </div>
                 <div class="mb-3">
                   <label for="description" class="form-label">Description</label>
-                  <input type="text" class="form-control" id="desc" value={{task.desc}} name="desc">
+                  <input type="text" class="form-control" id="desc" value="{{task.desc}}" name="desc">
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label">Due Date</label>
-                    <input type="date" class="form-control" id="duedate" value={{task.duedate}} name="duedate">
+                    <input type="date" class="form-control" id="duedate" value="{{task.duedate}}" name="duedate">
                 </div>
                 <div class="mb-3">
                     <label for="date" class="form-label">Status</label>
-                    <select class="form-select" id="status" value={{task.status}} name="status" >
-                          <option selected>Select progress</option>
+                    <select class="form-select" id="status" name="status" >
+                          <option selected>{{task.status}}</option>
                           <option value="Incomplete">Incomplete</option>
                           <option value="In Progress">In Progress</option>
                           <option value="Completed">Completed</option>

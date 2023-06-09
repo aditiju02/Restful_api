@@ -38,19 +38,24 @@ def delete(id):
     task = Task.query.filter_by(id=id).first()
     db.session.delete(task)
     db.session.commit()
-    return redirect("/list")
+    return redirect("/")
+
 
 @app.route('/update/<int:id>', methods=['GET', 'POST'])
 def update(id):
     if request.method=='POST':
         title = request.form['title']
         desc = request.form['desc']
+        duedate = request.form['duedate']
+        status = request.form['status']
         task = Task.query.filter_by(id=id).first()
         task.title = title
         task.desc = desc
+        task.duedate = duedate
+        task.status = status
         db.session.add(task)
         db.session.commit()
-        return redirect("/list")
+        return redirect("/")
         
     task = Task.query.filter_by(id=id).first()
     return render_template('update.html', task=task)
